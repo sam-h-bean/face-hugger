@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  terraform:
+  docker:
     name: Docker Build and Push
 
     runs-on: ubuntu-latest
