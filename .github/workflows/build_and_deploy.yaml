@@ -32,6 +32,6 @@ jobs:
           docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG .
           docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
       - name: Get Kubeconfig
-        run: aws eks update-kubeconfig --region use-east-1 --name face-hugger
+        run: aws eks update-kubeconfig --region us-east-1 --name face-hugger
       - name: Helm Deploy
         run: helm upgrade -i triton-server k8s/triton-server
