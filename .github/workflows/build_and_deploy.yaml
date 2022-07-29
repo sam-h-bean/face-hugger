@@ -33,7 +33,7 @@ jobs:
           docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
       - name: Get Kubeconfig
         run: aws eks update-kubeconfig --region us-east-1 --name face-hugger
-      - name: Helm Deploy Volumes
+      - name: Helm Deploy Volume
         run: helm upgrade -i triton-volume k8s/volume
       - name: Helm Deploy Server
         run: helm upgrade -i triton-server k8s/triton-server --timeout 15m
