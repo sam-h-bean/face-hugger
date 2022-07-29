@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  docker:
+  deploy:
     name: Docker Build and Push
 
     runs-on: ubuntu-latest
@@ -14,21 +14,19 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - name: Build Image
-        run: docker build -t triton-server:latest .
-      - name: Push to ECR
-        uses: jwalton/gh-ecr-push@v1
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
         with:
-          access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          region: us-east-1
-          image: triton-server:latest
-      - name: Helm Upgrade
-        uses: peymanmortazavi/eks-helm-deploy@v1
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS__KEY_ID }}
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
-          cluster-name: face-hugger
-          config-files: ./k8s/triton-server
-          name: triton-server
+      - name: Login to Amazon ECR
+        uses: aws-actions/amazon-ecr-login@v1
+      - name: Build, tag, and push image to Amazon ECR
+        run: |
+          docker image build --tag ${{ secrets.ECR_URI }}/triton-server:latest
+          docker push ${{ secrets.ECR_URI }}/triton-server:latest
+      - name: Get Kubeconfig
+        run: aws eks update-kubeconfig --region use-east-1 --name face-hugger
+      - name: Helm Deploy
+        run: helm upgrade -i triton-server k8s/triton-server
