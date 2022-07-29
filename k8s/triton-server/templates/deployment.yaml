@@ -14,14 +14,13 @@ spec:
       labels:
         {{- include "triton-server.selectorLabels" . | nindent 8 }}
     spec:
-      serviceAccountName: {{ include "triton-server.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
         - name: {{ .Chart.Name }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
-          image: 682187450638.dkr.ecr.us-east-1.amazonaws.com/face-hugger-registry/triton-server:latest
+          image: 682187450638.dkr.ecr.us-east-1.amazonaws.com/face-hugger-repository:latest
           imagePullPolicy: Always
           ports:
             - name: http
