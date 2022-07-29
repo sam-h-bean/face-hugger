@@ -16,12 +16,19 @@ spec:
     spec:
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      volumes:
+        - name: triton-volume
+          persistentVolumeClaim:
+            claimName: triton-pvc
       containers:
         - name: {{ .Chart.Name }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: 682187450638.dkr.ecr.us-east-1.amazonaws.com/face-hugger-repository:latest
           imagePullPolicy: Always
+          volumeMounts:
+            - mountPath: "/var/triton"
+              name: task-pv-storage
           ports:
             - name: http
               containerPort: 80

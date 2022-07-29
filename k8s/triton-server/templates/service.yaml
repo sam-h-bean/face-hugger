@@ -11,5 +11,9 @@ spec:
       targetPort: http
       protocol: TCP
       name: http
+  volumes:
+    - name: task-pv-storage
+      persistentVolumeClaim:
+        claimName: task-pv-claim
   selector:
     {{- include "triton-server.selectorLabels" . | nindent 4 }}
