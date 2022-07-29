@@ -21,7 +21,7 @@ if __name__ == "__main__":
     model_path = repository_path + "model"
     os.mkdir(model_path)
     shutil.copy("model.pbtx", model_path)
-    model.save_pretrained(model_path, file_name="mode.onnx")
+    model.save_pretrained(model_path, file_name="model.onnx")
 
     # Save pipeline for use by triton
     transformer_path = repository_path + "transformer"
