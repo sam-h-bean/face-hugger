@@ -36,4 +36,4 @@ jobs:
       - name: Helm Deploy Volume
         run: helm upgrade -i triton-volume k8s/volume
       - name: Helm Deploy Server
-        run: helm upgrade -i triton-server k8s/triton-server --timeout 15m
+        run: helm upgrade -i triton-server k8s/triton-server --timeout 10m
