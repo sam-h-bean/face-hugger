@@ -24,7 +24,7 @@ jobs:
         uses: aws-actions/amazon-ecr-login@v1
       - name: Build, tag, and push image to Amazon ECR
         run: |
-          docker image build --tag ${{ secrets.ECR_URI }}/triton-server:latest
+          docker image build --tag ${{ secrets.ECR_URI }}/triton-server:latest .
           docker push ${{ secrets.ECR_URI }}/triton-server:latest
       - name: Get Kubeconfig
         run: aws eks update-kubeconfig --region use-east-1 --name face-hugger
