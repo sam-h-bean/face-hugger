@@ -6,6 +6,7 @@ from optimum.onnxruntime import ORTModelForSequenceClassification
 
 if __name__ == "__main__":
     repository_path = "/var/triton/gpt2/"
+    os.mkdir(repository_path)
     model_id = "distilgpt2"
     model = ORTModelForSequenceClassification.from_pretrained(
         model_id, from_transformers=True
