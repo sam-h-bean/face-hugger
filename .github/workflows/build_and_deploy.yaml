@@ -1,4 +1,4 @@
-name: Docker
+name: Build Docker Image, Push to Registry, and Deploy with Helm
 
 on:
   push:
@@ -24,7 +24,7 @@ jobs:
           region: us-east-1
           image: triton-server:latest
       - name: Helm Upgrade
-        uses: bitovi/github-actions-deploy-eks-helm@v1.0.0
+        uses: peymanmortazavi/eks-helm-deploy@v1
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS__KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
