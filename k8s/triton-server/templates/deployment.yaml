@@ -21,8 +21,8 @@ spec:
         - name: {{ .Chart.Name }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          image: 682187450638.dkr.ecr.us-east-1.amazonaws.com/face-hugger-registry/triton-server:latest
+          imagePullPolicy: Always
           ports:
             - name: http
               containerPort: 80

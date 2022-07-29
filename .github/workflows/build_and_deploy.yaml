@@ -1,4 +1,4 @@
-name: Helm Deploy
+name: Docker
 
 on:
   push:
@@ -6,16 +6,25 @@ on:
       - main
 
 jobs:
-  helm:
-    name: Terraform Upgrade
+  docker:
+    name: Docker Build and Push
 
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+      - name: Build Image
+        run: docker build -t triton-server:latest .
+      - name: Push to ECR
+        uses: jwalton/gh-ecr-push@v1
+        with:
+          access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          region: us-east-1
+          image: triton-server:latest
       - name: Helm Upgrade
-        uses: peymanmortazavi/eks-helm-deploy@v1
+        uses: bitovi/github-actions-deploy-eks-helm@v1.0.0
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS__KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
