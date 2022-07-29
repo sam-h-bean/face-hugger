@@ -1,13 +1,12 @@
 import os
 import shutil
 
-from optimum.onnxruntime import ORTModelForSequenceClassification
-
+from optimum.onnxruntime import ORTModelForCausalLM
 
 if __name__ == "__main__":
     repository_path = "/var/triton/gpt2/"
     model_id = "distilgpt2"
-    model = ORTModelForSequenceClassification.from_pretrained(
+    model = ORTModelForCausalLM.from_pretrained(
         model_id, from_transformers=True
     )
     # Save tokenizer for use by triton
