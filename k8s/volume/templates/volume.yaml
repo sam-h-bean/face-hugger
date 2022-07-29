@@ -23,6 +23,8 @@ spec:
     namespace: default
   hostPath:
     path: "/mnt/data"
+  accessModes:
+    - ReadWriteOnce
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
