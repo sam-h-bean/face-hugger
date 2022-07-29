@@ -14,12 +14,12 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-#      - name: Helm Upgrade
-#        uses: peymanmortazavi/eks-helm-deploy@v1
-#        with:
-#          aws-access-key-id: ${{ secrets.AWS_ACCESS__KEY_ID }}
-#          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-#          aws-region: us-east-1
-#          cluster-name: mycluster
-#          config-files: .github/values/dev.yaml
-#          name: triton-server
+      - name: Helm Upgrade
+        uses: peymanmortazavi/eks-helm-deploy@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS__KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+          cluster-name: face-hugger
+          config-files: ./k8s/triton-server
+          name: triton-server
