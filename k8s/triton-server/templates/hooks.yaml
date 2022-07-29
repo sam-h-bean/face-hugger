@@ -12,7 +12,7 @@ spec:
   containers:
     - name: init-triton-server
       image: "682187450638.dkr.ecr.us-east-1.amazonaws.com/face-hugger-repository:latest"
-      command: ["python", "export_model_to_repository.py"]
+      command: ["python3", "export_model_to_repository.py"]
       volumeMounts:
         - mountPath: "/var/triton/"
           name: triton-volume
