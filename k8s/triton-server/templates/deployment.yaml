@@ -28,7 +28,7 @@ spec:
           imagePullPolicy: Always
           volumeMounts:
             - mountPath: "/var/triton"
-              name: task-pv-storage
+              name: triton-volume
           ports:
             - name: http
               containerPort: 80
