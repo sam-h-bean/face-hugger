@@ -12,7 +12,7 @@ if __name__ == "__main__":
     # Save tokenizer for use by triton
     tokenizer_path = repository_path + "encoder/"
     os.makedirs(tokenizer_path, exist_ok=True)
-    shutil.copy("config.pbtx", tokenizer_path)
+    shutil.copy("config.pbtxt", tokenizer_path)
     shutil.copy("python_tokenizer.py", tokenizer_path)
     #
     # # Save model for use by triton
@@ -25,3 +25,4 @@ if __name__ == "__main__":
     # transformer_path = repository_path + "transformer/"
     # os.makedirs(transformer_path, exist_ok=True)
     # shutil.copy("transformer.pbtx", transformer_path)
+    exit(0)
