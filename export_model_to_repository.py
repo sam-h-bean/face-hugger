@@ -25,6 +25,5 @@ if __name__ == "__main__":
 
     # Save pipeline for use by triton
     transformer_path = repository_path + "transformer/"
-    os.makedirs(transformer_path, exist_ok=True)
     os.makedirs(transformer_path + "1/", exist_ok=True)
     shutil.copy("triton-config/model/config.pbtxt", transformer_path + "1/config.pbtxt")

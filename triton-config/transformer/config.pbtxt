@@ -39,11 +39,11 @@ ensemble_scheduling {
             model_version: -1
             input_map [
                 {
-                    key: "INPUT_IDS"
+                    key: "input_ids"
                     value: "INPUT_IDS"
                 },
                 {
-                    key: "ATTENTION"
+                    key: "attention_mask"
                     value: "ATTENTION"
                 }
             ]
