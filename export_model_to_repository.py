@@ -12,8 +12,8 @@ if __name__ == "__main__":
     # Save tokenizer for use by triton
     tokenizer_path = repository_path + "encoder/"
     os.makedirs(tokenizer_path, exist_ok=True)
-    shutil.copy("triton-config/encoder/config.pbtxt", tokenizer_path)
-    shutil.copy("triton-config/encoder/python_tokenizer.py", tokenizer_path)
+    shutil.copy("triton-config/encoder/config.pbtxt", tokenizer_path + "config.pbtxt")
+    shutil.copy("triton-config/encoder/python_tokenizer.py", tokenizer_path + "python_tokenizer.py")
     #
     # # Save model for use by triton
     # model_path = repository_path + "model/"
