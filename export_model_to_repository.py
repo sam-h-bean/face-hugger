@@ -14,7 +14,7 @@ if __name__ == "__main__":
     os.makedirs(tokenizer_path, exist_ok=True)
     shutil.copy("triton-config/encoder/config.pbtxt", tokenizer_path + "config.pbtxt")
     os.makedirs(tokenizer_path + "1/", exist_ok=True)
-    shutil.copy("triton-config/encoder/python_tokenizer.py", tokenizer_path + "1/python_tokenizer.py")
+    shutil.copy("triton-config/encoder/model.py", tokenizer_path + "1/model.py")
     #
     # # Save model for use by triton
     # model_path = repository_path + "model/"
