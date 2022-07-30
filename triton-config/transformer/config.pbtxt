@@ -4,13 +4,13 @@ max_batch_size: 0
 
 input {
     name: "TEXT"
-    datatype: TYPE_STRING
+    data_type: TYPE_STRING
     dims: [-1]
 }
 
 output {
     name: "TEXT"
-    datatype: TYPE_STRING
+    data_type: TYPE_STRING
     dims: [-1]
 }
 
