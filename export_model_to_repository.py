@@ -27,4 +27,4 @@ if __name__ == "__main__":
     transformer_path = repository_path + "transformer/"
     os.makedirs(transformer_path, exist_ok=True)
     os.makedirs(transformer_path + "1/", exist_ok=True)
-    shutil.copy("config.pbtxt", transformer_path + "1/config.pbtxt")
+    shutil.copy("triton-config/model/config.pbtxt", transformer_path + "1/config.pbtxt")
