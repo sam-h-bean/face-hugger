@@ -25,4 +25,3 @@ if __name__ == "__main__":
     # transformer_path = repository_path + "transformer/"
     # os.makedirs(transformer_path, exist_ok=True)
     # shutil.copy("transformer.pbtx", transformer_path)
-    exit(0)
