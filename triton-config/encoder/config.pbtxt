@@ -1,5 +1,5 @@
 name: "encoder"
-platform: "python"
+backend: "python"
 max_batch_size: 0
 
 input [
