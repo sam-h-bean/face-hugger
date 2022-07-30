@@ -3,7 +3,7 @@ kind: Pod
 metadata:
   name: init-hooks
   annotations:
-    "helm.sh/hook": "pre-install,pre-upgrade"
+    "helm.sh/hook": "pre-upgrade"
 spec:
   restartPolicy: Never
   volumes:

@@ -48,7 +48,7 @@ ensemble_scheduling {
                 }
             ]
             output_map {
-                key: "MODEL_OUTPUT"
+                key: "logits"
                 value: "MODEL_OUTPUT"
             }
         }
