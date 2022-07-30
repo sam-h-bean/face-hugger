@@ -1,10 +1,11 @@
 apiVersion: v1
-kind: Pod
+kind: Job
 metadata:
   name: init-hooks
   annotations:
     "helm.sh/hook": "pre-install,pre-upgrade"
 spec:
+  restartPolicy: Never
   volumes:
     - name: triton-volume
       persistentVolumeClaim:
