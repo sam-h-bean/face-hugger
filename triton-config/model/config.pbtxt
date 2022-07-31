@@ -1,7 +1,7 @@
 name: "model"
-platform: "tensorrt_plan"
+platform: "onnxruntime_onnx"
 max_batch_size: 0
-default_model_filename: "model.plan"
+default_model_filename: "model.onnx"
 
 input: [
     {
